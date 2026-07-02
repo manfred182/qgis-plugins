@@ -1,0 +1,18 @@
+[general]
+name=GeoMigrator Pro
+qgisMinimumVersion=3.22
+qgisMaximumVersion=3.99
+version=1.0
+author=Jose Orlando Castillo Ospina - Ing. Agroecologo, Esp. Sistemas de Informacion Geografica y Esp. Gestion Ambiental, Desarrollado con apoyo de IA: Claude (Anthropic) y ChatGPT (OpenAI)
+about=Plugin profesional para migracion de datos geoespaciales hacia PostgreSQL/PostGIS. Soporta GDB, SHP, GeoJSON, KML, Excel, CSV y XTF/INTERLIS (estandar IGAC - LADM-COL). Desarrollado para el contexto catastral colombiano. Creado por Jose Orlando Castillo Ospina.
+description=Migracion automatica GDB, SHP, GeoJSON, KML, Excel, CSV y XTF hacia PostgreSQL/PostGIS con soporte IGAC
+category=Database
+icon=icon.png
+experimental=False
+deprecated=False
+tags=postgresql,postgis,gdb,qgis,excel,csv,shapefile,geojson,kml,xtf,interlis,igac,ladm,catastro,colombia
+homepage=
+tracker=
+repository=
+hasProcessingProvider=no
+credits=Jose Orlando Castillo Ospina - Ing. Agroecologo, Esp. Sistemas de Informacion Geografica y Esp. Gestion Ambiental. Desarrollado con apoyo de IA: Claude (Anthropic) y ChatGPT (OpenAI)

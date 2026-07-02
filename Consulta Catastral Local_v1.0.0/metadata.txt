@@ -1,0 +1,16 @@
+[general]
+name=Consulta Catastral Local
+qgisMinimumVersion=3.0
+description=Herramienta de consulta predial R1+R2 para catastro multipropósito IGAC Colombia.
+version=1.0.0
+author=Jose Orlando Castillo Ospina, Ingeniero Agroecologo, Esp. Sistemas de Información Geográfica, — Desarrollado con apoyo de Inteligencia Artificial (Claude, Anthropic y OpenCode IA)
+email=
+about=Herramienta para QGIS 3.x que permite consultar, visualizar y exportar información predial catastral directamente desde capas PostgreSQL/PostGIS del modelo IGAC. Incluye búsqueda rápida, filtros avanzados, zoom automático al predio, navegación entre resultados y exportación a Excel.
+tracker=
+repository=
+tags=catastro,predial,catastro multipropósito
+homepage=
+category=Vector
+icon=icons/icon.png
+experimental=False
+deprecated=False
