@@ -1,0 +1,29 @@
+
+
+# Local credentials and Python caches are excluded from publication.
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+!**/.env.sample
+!**/.env.template
+**/.aws/credentials
+**/.ssh/id_rsa
+**/.ssh/id_ed25519
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Local credentials and Python caches are excluded from publication.
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+!**/.env.sample
+!**/.env.template
+**/.aws/credentials
+**/.ssh/id_rsa
+**/.ssh/id_ed25519
+**/__pycache__/
+*.pyc
+*.pyo

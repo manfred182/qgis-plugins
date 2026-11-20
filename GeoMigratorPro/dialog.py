@@ -6,9 +6,12 @@ Con apoyo de IA: Claude (Anthropic) y ChatGPT (OpenAI)
 """
 import os
 import re
+import shutil
 import subprocess
 import sys
 import unicodedata
+from datetime import datetime
+from pathlib import Path
 
 from qgis.PyQt.QtWidgets import (
     QDialog, QFileDialog, QVBoxLayout, QHBoxLayout,
@@ -18,9 +21,9 @@ from qgis.PyQt.QtWidgets import (
     QComboBox, QGroupBox, QAbstractItemView, QInputDialog,
     QScrollArea, QFrame, QSizePolicy, QGridLayout
 )
-from qgis.PyQt.QtCore import Qt
+from qgis.PyQt.QtCore import Qt, QStandardPaths
 from qgis.PyQt.QtGui import QFont, QPixmap
-from qgis.core import QgsVectorLayer, QgsProject, QgsSettings, QgsDataSourceUri, QgsProviderRegistry
+from qgis.core import QgsVectorLayer, QgsProject, QgsSettings, QgsDataSourceUri
 
 from .worker import OgrWorker, OgrInfoWorker
 from .xtf_worker import JarDownloadWorker, XtfImportWorker
@@ -74,6 +77,14 @@ def _sanitize_table_name(name):
     return name
 
 
+def _redact_password(text):
+    """Oculta credenciales PostgreSQL antes de mostrarlas o guardarlas."""
+    return re.sub(
+        r"(?i)(password=)(?:\"[^\"]*\"|'[^']*'|\S+)",
+        r"\1****",
+        str(text)
+    )
+
 def _sanitize_cmd(cmd):
     """Reemplaza la contrasena en un comando antes de mostrarlo en log."""
     result = []
@@ -86,23 +97,33 @@ def _sanitize_cmd(cmd):
     return " ".join(result)
 
 
-def _list_gdb_layers_sync(gdb_path):
-    """Retorna lista de capas en una GDB usando ogrinfo (bloqueante)."""
+def _list_gdb_layers_sync(gdb_path, with_error=False):
+    """Lista todas las capas, incluidas las vacias, y conserva errores de OGR."""
     try:
-        r = subprocess.run(
-            ["ogrinfo", "-al", "-so", gdb_path],
+        result = subprocess.run(
+            ["ogrinfo", "-ro", gdb_path],
             capture_output=True, text=True,
             timeout=30, encoding="utf-8", errors="replace"
         )
+        if result.returncode != 0:
+            error = (result.stderr.strip() or result.stdout.strip() or
+                     "ogrinfo termino con codigo " + str(result.returncode))
+            return ([], error) if with_error else []
         layers = []
-        for line in r.stdout.splitlines():
+        for line in result.stdout.splitlines():
             if line.startswith("Layer name:"):
                 layers.append(line.split(":", 1)[1].strip())
-        return layers
-    except Exception:
-        return []
-
-
+                continue
+            match = re.match(
+                r"^\s*\d+:\s+(.+?)(?:\s+\([^()]*(?:\([^()]*\)[^()]*)*\))?\s*$",
+                line
+            )
+            if match:
+                layers.append(match.group(1).strip())
+        layers = list(dict.fromkeys(layers))
+        return (layers, "") if with_error else layers
+    except Exception as exc:
+        return ([], str(exc)) if with_error else []
 def _find_java():
     """Busca Java en PATH y en rutas comunes de Windows, macOS y Linux."""
     import shutil
@@ -313,6 +334,8 @@ class GeoMigratorDialog(QDialog):
         self._total          = 0
         self._done           = 0
         self._errors         = []
+        self._report_lines   = None
+        self._last_report_path = ""
         self.setWindowTitle("GeoMigrator Pro  v1.0")
         self.resize(850, 750)
         self.setMinimumSize(640, 480)
@@ -694,25 +717,48 @@ class GeoMigratorDialog(QDialog):
             return
         conn   = self._ensure_db_and_schema(f)
         schema = f["schema"].text().strip() or "public"
-        sel    = [i.text() for i in self.lst_gdb_layers.selectedItems()]
-        base_cmd = [
-            "ogr2ogr", "-f", "PostgreSQL", conn, gdb,
-            "-progress", "-skipfailures",
-            "-nlt", "PROMOTE_TO_MULTI",
-            "-lco", "SCHEMA=" + schema,
-            "-lco", "GEOMETRY_NAME=geom",
-            "--config", "PG_USE_COPY", "YES"
-        ]
-        if self.chk_overwrite.isChecked():
-            base_cmd.append("-overwrite")
-        if self.chk_makevalid.isChecked():
-            base_cmd.append("-makevalid")
-        if sel:
-            cmds   = [base_cmd + [layer] for layer in sel]
-            tables = [_sanitize_table_name(layer) for layer in sel]
-        else:
-            cmds   = [base_cmd]
-            tables = [_sanitize_table_name(layer) for layer in _list_gdb_layers_sync(gdb)]
+        sel = [i.text() for i in self.lst_gdb_layers.selectedItems()
+               if not i.text().startswith("(")]
+        layers, list_error = _list_gdb_layers_sync(gdb, with_error=True)
+        if list_error:
+            self._log("ERROR leyendo la GDB: " + list_error)
+            self._write_diagnostic_report("GDB - ERROR DE LECTURA", [list_error])
+            QMessageBox.critical(self, "No se pudo leer la GDB", list_error)
+            return
+        if not layers:
+            msg = "La geodatabase se abrio correctamente, pero no contiene capas."
+            self._log("Aviso: " + msg)
+            self._write_diagnostic_report("GDB SIN CAPAS", [msg])
+            QMessageBox.warning(self, "GDB sin capas", msg)
+            return
+        selected_layers = sel or layers
+        missing = [layer for layer in selected_layers if layer not in layers]
+        if missing:
+            msg = "Capas no encontradas en la GDB: " + ", ".join(missing)
+            self._log("ERROR: " + msg)
+            QMessageBox.critical(self, "Capas no encontradas", msg)
+            return
+
+        cmds = []
+        tables = []
+        for layer in selected_layers:
+            table = _sanitize_table_name(layer)
+            cmd = [
+                "ogr2ogr", "-f", "PostgreSQL", conn, gdb,
+                "-nln", schema + "." + table,
+                "-progress", "-skipfailures",
+                "-nlt", "PROMOTE_TO_MULTI",
+                "-lco", "GEOMETRY_NAME=geom",
+                "--config", "PG_USE_COPY", "YES"
+            ]
+            if self.chk_overwrite.isChecked():
+                cmd.append("-overwrite")
+            if self.chk_makevalid.isChecked():
+                cmd.append("-makevalid")
+            # Una orden por capa crea tambien las capas con cero entidades.
+            cmd.append(layer)
+            cmds.append(cmd)
+            tables.append(table)
         self._run_queue(cmds, "GDB", self.chk_load_gdb.isChecked(),
                         f["db"].text(), schema, tables, conn)
 
@@ -1230,11 +1276,17 @@ class GeoMigratorDialog(QDialog):
         schema = f["schema"].text().strip() or "public"
         tables = []
         cmds   = []
+        scan_errors = []
         for src in sources:
             if src.suffix.lower() == ".gdb" and src.is_dir():
-                gdb_layers = _list_gdb_layers_sync(str(src))
+                gdb_layers, gdb_error = _list_gdb_layers_sync(
+                    str(src), with_error=True
+                )
+                if gdb_error:
+                    scan_errors.append("No se pudo leer " + str(src) + ": " + gdb_error)
+                    continue
                 if not gdb_layers:
-                    self._log("Aviso: no se encontraron capas en: " + str(src))
+                    scan_errors.append("GDB sin capas: " + str(src))
                     continue
                 for layer in gdb_layers:
                     safe_table = _sanitize_table_name(layer)
@@ -1262,7 +1314,8 @@ class GeoMigratorDialog(QDialog):
         self._log("Archivos encontrados: " + str(len(cmds)))
         label = "LOTE (" + str(len(cmds)) + " archivos)"
         self._run_queue(cmds, label, self.chk_batch_load.isChecked(),
-                        f["db"].text(), schema, tables, conn)
+                        f["db"].text(), schema, tables, conn,
+                        initial_errors=scan_errors)
 
     # ── TAB ACERCA DE ─────────────────────────────────────────────────────────
 
@@ -1351,11 +1404,38 @@ class GeoMigratorDialog(QDialog):
             self._log("[OK] Java detectado: " + java)
 
     def _log(self, msg):
-        """Agrega linea al log con timestamp."""
-        from datetime import datetime
+        """Agrega linea al log con timestamp y al reporte de la ejecucion."""
         ts = datetime.now().strftime("%H:%M:%S")
-        self.log.append("[" + ts + "] " + msg)
+        line = "[" + ts + "] " + _redact_password(msg)
+        self.log.append(line)
+        if self._report_lines is not None:
+            self._report_lines.append(line)
 
+    def _write_diagnostic_report(self, label, extra=None):
+        """Guarda un reporte automatico sin contrasenas y retorna su ruta."""
+        try:
+            root = QStandardPaths.writableLocation(QStandardPaths.DocumentsLocation)
+            report_dir = Path(root or self.plugin_dir) / "GeoMigratorPro_Reportes"
+            report_dir.mkdir(parents=True, exist_ok=True)
+            stamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+            safe_label = _sanitize_table_name(label) or "migracion"
+            path = report_dir / ("reporte_" + safe_label + "_" + stamp + ".txt")
+            lines = [
+                "GeoMigrator Pro - Reporte de diagnostico",
+                "Fecha: " + datetime.now().isoformat(timespec="seconds"),
+                "Proceso: " + label,
+                "GDAL/OGR: " + (shutil.which("ogr2ogr") or "NO ENCONTRADO"),
+                "=" * 72,
+            ]
+            lines.extend(self._report_lines or [])
+            lines.extend(extra or [])
+            lines = [_redact_password(line) for line in lines]
+            path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+            self._last_report_path = str(path)
+            return str(path)
+        except Exception as exc:
+            self.log.append("No se pudo guardar el reporte: " + str(exc))
+            return ""
     # ── creacion automatica de BD / esquema ──────────────────────────────────
 
     def _ensure_db_and_schema(self, f):
@@ -1402,7 +1482,8 @@ class GeoMigratorDialog(QDialog):
 
     # ── motor de ejecucion generico ───────────────────────────────────────────
 
-    def _run_queue(self, cmds, label, load_after, db, schema, tables, conn_str):
+    def _run_queue(self, cmds, label, load_after, db, schema, tables, conn_str,
+                   initial_errors=None):
         if self._worker and self._worker.isRunning():
             QMessageBox.warning(self, "Proceso activo",
                                 "Ya hay una importacion en curso.")
@@ -1416,10 +1497,13 @@ class GeoMigratorDialog(QDialog):
         self._label         = label
         self._total         = len(cmds)
         self._done          = 0
-        self._errors        = []
+        self._errors        = list(initial_errors or [])
+        self._report_lines  = []
         self._log("=" * 60)
         self._log("INICIANDO: " + label + "  (" + str(self._total) + " comando(s))")
         self._log("=" * 60)
+        for preflight_error in self._errors:
+            self._log("ERROR previo: " + preflight_error)
         self.progress.setRange(0, max(self._total, 1))
         self.progress.setValue(0)
         if self._total > 0:
@@ -1439,7 +1523,7 @@ class GeoMigratorDialog(QDialog):
         self._log("")
         self._log(step + _sanitize_cmd(cmd))
         self._worker = OgrWorker(cmd, parent=self)
-        self._worker.line_ready.connect(self.log.append)
+        self._worker.line_ready.connect(self._log)
         self._worker.finished_ok.connect(self._on_step_ok)
         self._worker.finished_err.connect(self._on_step_err)
         self._worker.start()
@@ -1463,20 +1547,25 @@ class GeoMigratorDialog(QDialog):
         else:
             self._log(self._label + " - COMPLETADO")
         self._log("=" * 60)
+        report_path = self._write_diagnostic_report(self._label, self._errors)
+        self._report_lines = None
+        if report_path:
+            self._log("Reporte guardado en: " + report_path)
         if self._errors:
             QMessageBox.warning(
                 self, "Proceso completado con errores",
                 self._label + " termino con " + str(len(self._errors)) +
-                " error(es).\n\nRevisa el log para ver el detalle."
+                " error(es).\n\nReporte:\n" + (report_path or "No se pudo guardar")
             )
             return
         self._save_pg_connection_in_qgis()
         if self._load_after and self.iface and self._load_tables:
             self._load_layers_in_qgis()
         else:
-            QMessageBox.information(self, "Listo",
-                                    self._label + " completado correctamente.")
-
+            QMessageBox.information(
+                self, "Listo", self._label + " completado correctamente.\n\nReporte:\n" +
+                (report_path or "No se pudo guardar")
+            )
     def _load_layers_in_qgis(self):
         loaded = 0
         conn_str = self._load_conn_str

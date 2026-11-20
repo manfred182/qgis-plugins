@@ -4,7 +4,7 @@ Worker para descarga de ili2pg y ejecucion de importacion XTF.
 """
 import subprocess
 from qgis.PyQt.QtCore import QThread, pyqtSignal
-from .ili2pg_manager import download_jar, get_jar_path
+from .ili2pg_manager import download_jar
 
 
 class JarDownloadWorker(QThread):

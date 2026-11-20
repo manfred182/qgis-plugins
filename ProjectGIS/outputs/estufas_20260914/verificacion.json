@@ -1,0 +1,10 @@
+{
+  "registros_excel": 30,
+  "puntos_shapefile": 30,
+  "puntos_geopackage": 30,
+  "omitidos": 0,
+  "x": "Longitud",
+  "y": "Latitud",
+  "crs": "EPSG:4326 (WGS 84 asumido; datum no declarado en Excel)",
+  "verificacion": "Geometrias, coordenadas, cedulas y telefonos cotejados fila a fila; proyecto QGIS reabierto correctamente."
+}

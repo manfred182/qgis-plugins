@@ -1,0 +1,21 @@
+[general]
+name=GeoCatastro Predial
+qgisMinimumVersion=3.0
+description=Build a query-ready layer from an IGAC file geodatabase plus R1/R2, then search, inspect, map, and export Colombian cadastral property records.
+version=1.1.0
+changelog=Adds automatic portrait Letter-size PDF map sheets and consolidates U_MANZANA plus R_VEREDA into the shared MANZANA_VEREDA_CODIGO field so urban and rural territorial codes can be queried together.
+author=Jose Orlando Castillo Ospina, Ing. Agroecologo - UniAmazonia, Esp. Sistemas de Informacion Geografica - Umanizales y Esp. Gestion Ambiental Fund. Univer. Area Andina. Desarrollado con apoyo de IA: Claude (Anthropic) y Codex Open IA (ChatGPT)
+email=nanometal182@gmail.com
+credits=Jose Orlando Castillo Ospina, Ing. Agroecologo - UniAmazonia, Esp. Sistemas de Informacion Geografica - Umanizales y Esp. Gestion Ambiental Fund. Univer. Area Andina. Desarrollado con apoyo de IA: Claude (Anthropic) y Codex Open IA (ChatGPT)
+about=This QGIS 3 plugin creates a consolidated query layer from urban/rural Terreno, U_MANZANA and R_VEREDA data in an IGAC file geodatabase, attaches R1/R2 data, and provides quick search, advanced filters, automatic zoom, result navigation, Excel export, and portrait Letter-size PDF map sheets.
+
+    Desarrollado para la Alcaldía de Morelia (Caquetá) en el marco del Contrato de Consultoría GIZ No. 4500024066 (Proyecto Paz Rural - Catastro Multipropósito). Uso exclusivo del municipio; distribución, reproducción o modificación por terceros prohibida sin autorización escrita de GIZ.
+license=Uso restringido - Derechos patrimoniales cedidos a GIZ (Contrato 4500024066, Proyecto Paz Rural). Uso exclusivo autorizado: Alcaldía de Morelia (Caquetá). Ver archivo LICENSE.
+tracker=
+repository=
+tags=catastro, predial, catastro multipropósito
+homepage=
+category=Vector
+icon=icons/consulta_catastral_info.png
+experimental=False
+deprecated=False

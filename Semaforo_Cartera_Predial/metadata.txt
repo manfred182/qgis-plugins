@@ -1,0 +1,23 @@
+[general]
+name=Semáforo de Cartera Predial
+qgisMinimumVersion=3.22
+description=Herramienta única para integrar GDB, R1/R2 y cartera en una capa predial con semáforo automático.
+version=1.0.0
+author=Jose Orlando Castillo Ospina, Ing. Agroecologo - UniAmazonia, Esp. Sistemas de Informacion Geografica - Umanizales y Esp. Gestion Ambiental Fund. Univer. Area Andina. Desarrollado con apoyo de IA: Claude (Anthropic) y Codex Open IA (ChatGPT)
+email=nanometal182@gmail.com
+credits=Jose Orlando Castillo Ospina, Ing. Agroecologo - UniAmazonia, Esp. Sistemas de Informacion Geografica - Umanizales y Esp. Gestion Ambiental Fund. Univer. Area Andina. Desarrollado con apoyo de IA: Claude (Anthropic) y Codex Open IA (ChatGPT)
+about=Plugin para integrar una Geodatabase catastral (carpeta .gdb o .gdb.zip), los registros R1/R2 y un reporte de cartera. Consolida los terrenos rurales, urbanos, formales e informales; detecta el número predial, crea una sola capa con todos los atributos y aplica el semáforo de deuda, paz y salvo o sin información. Los deudores sin geometría se conservan en la tabla para evitar pérdida de información. También conserva el análisis directo de reportes y la exportación de morosos.
+
+    Desarrollado para la Alcaldía de Morelia (Caquetá) en el marco del Contrato de Consultoría GIZ No. 4500024066 (Proyecto Paz Rural - Catastro Multipropósito). Uso exclusivo del municipio; distribución, reproducción o modificación por terceros prohibida sin autorización escrita de GIZ.
+license=Uso restringido - Derechos patrimoniales cedidos a GIZ (Contrato 4500024066, Proyecto Paz Rural). Uso exclusivo autorizado: Alcaldía de Morelia (Caquetá). Ver archivo LICENSE.
+tracker=
+repository=
+homepage=
+tags=catastro,cartera,predial,deuda,paz y salvo,semaforo,morosos,liquidacion
+category=Vector
+icon=icon.png
+experimental=False
+deprecated=False
+server=False
+hasProcessingProvider=False
+changelog=1.0.0: integra GDB catastral, R1/R2 y cartera en una sola capa con semáforo (EN DEUDA / PAZ Y SALVO). Los predios a paz y salvo se reportan con sus datos (propietario, identificación, dirección y avalúo tomados de R1) y con la vigencia actual del ejercicio, apareciendo junto a los deudores en el análisis por vigencia. Agrega el nombre de la vereda cruzando con la capa R_VEREDA de la GDB. Exporta un Excel con resumen ejecutivo, análisis financiero, balance filtrable, hojas Deudores y Paz y salvo (coloreadas por fila igual que el balance financiero) y códigos ilegibles. Habilitación territorial: solo procesa y exporta datos de Morelia (código catastral 18479), validado por los primeros cinco dígitos del número predial y guardado como hash con sal.

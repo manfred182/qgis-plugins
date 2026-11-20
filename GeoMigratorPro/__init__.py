@@ -10,7 +10,7 @@ def classFactory(iface):
     try:
         from .main_plugin import GeoMigratorPro
         return GeoMigratorPro(iface)
-    except Exception as e:
+    except Exception:
         import traceback
         from qgis.PyQt.QtWidgets import QMessageBox
         QMessageBox.critical(

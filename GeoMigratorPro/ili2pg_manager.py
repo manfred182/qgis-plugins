@@ -7,7 +7,6 @@ import os
 import json
 import urllib.request
 import zipfile
-import shutil
 
 # Version compatible con el modelo IGAC incluido.
 ILI2PG_VERSION  = "4.4.3"

@@ -1,0 +1,34 @@
+[27:00-27:10] siempre tiene que ir como no les vaya a correr el ferro listo aquí ya tenemos referencia y demás
+[27:13-27:19] como estos tienen una base de datos de información podemos hacer esto
+[27:19-27:26] tenemos que revisar, esto es el contenido que nos tiene
+[27:29-27:35] que es aparte, que es la tabla de atributos, que como la tabla de atributos que acabo de sacar
+[27:35-27:42] te utiliza derecho y le voy a abrir tabla de atributos, tomáticamente voy a abrir varias,
+[27:42-27:49] pero entonces ya tengo una abierta en donde tenemos el código predial, el código anterior,
+[27:49-27:54] el código de la brea y el código
+[27:54-27:57] predial. El usuario que se hizo
+[27:57-28:03] actualización de 2022-2025, que esto se levantó en 2024 pero se entre en
+[28:03-28:08] 2025 hasta aquí llegó yo pero existe en otro tipo de registros en donde está
+[28:08-28:13] toda la información del profietario y la información jurídica del
+[28:13-28:18] radio que en este caso es lo que viene separado o que se conoce como
+[28:18-28:23] vasos de datos alfanomérica, que también se despasa la izquierda en el día que en este caso son
+[28:23-28:32] dos registros uno y los registros dos, que son dos libros en donde el registro uno yo lo puedo
+[28:32-28:39] traer acá ya que es un excel y son libros de datos y los potraer acá el registro dos para hacer lo mismo,
+[28:40-28:47] es una base de datos pero no tengo especialización sobre la misma, no está marrada, entonces que
+[28:47-28:52] para hacer esto. Se nos salió. Eso fue un error que nos puede pasar. Voy a ver muy
+[28:52-28:59] lo que hagamos porque lo eliminamos la tapa y lo que hago yo es esto. Ahora lo
+[28:59-29:06] atrabo a las tributos y ya primero está el número pre-deal y segundo
+[29:06-29:22] Esta, toda la información, propietario, la dirección, tanto como Urbano y Rudar, la
+[29:22-29:28] vigincia, los avalúos, las áreas construidas, que es la información que estino económico,
+[29:28-29:31] Y demás, listo.
+[29:31-29:37] Y ahora, el registro 2, esto es la información jurídica.
+[29:37-29:42] Esto porque no está disponible, porque esto tiene información de habidas data y solamente
+[29:42-29:48] se le entrega directamente propietario para quienes pertinentes que es el la caldía
+[29:48-29:49] para su proceso de valor.
+[29:49-29:53] Aquí está la información jurídica, en este caso,
+[29:53-29:58] la información hasta el número de la matricula inmobiliaria si tiene matricula inmobiliaria
+[29:58-30:04] estratos, zonas, en las áreas de terreno, los colegos de las zonas económicas, ¿eh?
+[30:04-30:18] Por lo menos acá van las habitaciones, dotes, todos, ¿eh?
+[30:18-30:24] y este existen la información en panomérica, aquí está la matricula inmobiliaria, en total
+[30:24-30:30] de registros, no lo de orden tipo registro, pero lo importante es que no me lo creía,
+[30:30-30:38] que este número predial es el mismo que está asociado a la ciudad, es pasión, en ese
+[30:38-30:42] momento hasta aquí llegamos con el de la familia de sesión de sit.

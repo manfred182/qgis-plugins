@@ -18,3 +18,14 @@ GDB, SHP, GeoJSON, KML, GPX, GML, Excel, CSV y XTF/INTERLIS (IGAC LADM-COL).
 2. Ve a `Complementos > Administrar e instalar complementos > Instalar desde ZIP`.
 3. Selecciona `GeoMigratorPro.zip`.
 4. Activa el plugin.
+
+## Empaquetado para publicacion
+El ZIP de distribucion debe contener una unica carpeta superior llamada `GeoMigratorPro`. Los archivos compilados y caches de Python (`__pycache__`, `*.pyc`, `*.pyo`) no deben incluirse en el repositorio ni en el ZIP.
+
+## Soporte
+- Repositorio: https://github.com/manfred182/qgis-plugins
+- Incidencias: https://github.com/manfred182/qgis-plugins/issues
+- Contacto: nanometal182@gmail.com
+
+## Manual de usuario
+Consulta la guia completa de instalacion, migracion, flujos catastrales, control de calidad y solucion de problemas en [MANUAL_USUARIO.md](MANUAL_USUARIO.md).

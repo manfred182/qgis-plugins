@@ -1,0 +1,185 @@
+[00:00-00:08] Hola, hola a todos. Buenos días, buenas tardes, para los que están viendo este vídeo tutorial.
+[00:08-00:14] Soy mi José Castillo Espina, y negro agrocologo de la Universidad de la Amazonia,
+[00:14-00:19] especialista en SIC, de la Universidad de Manizales, especialista en SIC, en Ambienta,
+[00:19-00:28] de la Universidad Fundación Universitaria de la Viendina, que presente tutorial está orientado
+[00:28-00:35] para el desarrollo y manejo de QGIS y manejo de sistema de información geográfica en el
+[00:35-00:42] marco de proyecto Catastasupult, multipropósito y los procesos de apoyo que la cooperación
+[00:42-00:49] de la mamá por medio de GICETa está llevando a cabo para el fortalecimiento de las alcaldías
+[00:49-00:58] de instituciones en cuanto a sus procesos y apoyos con su proyecto de pasurar en seguimiento
+[00:58-01:01] y apoyó a los procesos de paz.
+[01:01-01:09] Muzra música, trazo un multipropósito y su parte de este proceso y la actualización
+[01:09-01:10] de la trata de talento mismo.
+[01:10-01:18] De ahí surgió esta necesidad de tener conocimientos y bases en respecto a la información
+[01:18-01:25] leográfica y la captura de datos y otro procesamiento para el mismo que le va a servir para
+[01:25-01:31] la planificación de desarrollo y manejo de las mismas alcaldías.
+[01:31-01:39] Vamos a empezar, primero, el navegador, vamos a usar cullis, cullis o cuantuncis, es un
+[01:39-01:47] software libre de desarrollo o una plataforma para visualización de información geográfica
+[01:47-01:55] que hay pases de datos espaciales o otros datos del mismo, como sabemos, manejamos
+[01:55-02:00] puñís precisamente por esto, porque es un uso de libre, no necesita maldicencia y demás,
+[02:00-02:06] entonces entramos a la página, dimos a la página, vamos a la parte de donaciones no perdón
+[02:06-02:13] de descargas, San Loat y podemos ver acá que ellos existen y manejan por una parte de
+[02:13-02:29] que nos dice que es la comunidad para que nos sirve, como editor de capas para los mapas,
+[02:29-02:35] para procesamiento de análisis de las mismas, como un terramiento de la parada de disintegrales,
+[02:35-02:44] con un terramiento de la parada de 16 integrales, con parte de mapas, temáticos y demás, entre otros.
+[02:44-02:57] Es de Coigo libre, Coigo abierto en base GNU, que es una propiedad de colaboración, la licencia es una licencia de Coigo abierto que es para siempre, no tiene ningún tipo de manejo.
+[02:57-02:59] aquí es una de los colaboradores y patricionadores de los...
+[03:00-03:09] mismo, ellos tienen muchos, muchos, los esos, si, ustedes lo han usado otra vez, o viendo acá,
+[03:09-03:15] vamos a realizar y vamos a ver acerca de Cullis, cuáles son los características,
+[03:19-03:24] es lo que podemos hacer básicamente con Cullis, tenemos muchas ventajas porque también podemos
+[03:24-03:31] como sistalar, complementos y herramientas que nos pueden ayudar a servir como servidor,
+[03:31-03:41] como descripción, aplicativo de cliente de web o también existe para datos, manejo
+[03:41-03:49] de datos en teléfonos móviles y tableras. Bien se ha Android, o bien se han ios en el caso
+[03:49-04:00] Vamos acá donde diga descarga, si, aquí nos pide donar, pero en este caso vamos a saltarnos
+[04:00-04:07] y ya podemos ver, aquí empezamos a dar toda la información para guindos, descarnos,
+[04:07-04:13] alternativas y demás, aquí podemos mirar que hay para diversos sistemas operativos para
+[04:13-04:19] Windows para más para linos, pate datos de diseño, estos otros tipos de sistema
+[04:19-04:25] operativo que es de diseño gráfico y demás, lo hemos causado y más en edad de lo mismo,
+[04:25-04:32] estos son máquinas virtuales para dispositivos móviles y demás, pero vamos a hablarles de usar
+[04:32-04:37] el decisivo operativo Windows. Lo voy a escargar.
+[04:37-04:44] eso también depende mucho de la capacidad de internet que tengan en ese momento
+[04:44-04:55] o en donde están localizados, tengan mucho cuidado, no descarguemos la versión, lo que
+[04:55-05:07] que se demora, le recomiendo no usar la versión, la que aquí llamamos última versión o
+[05:07-05:15] orción standard, ya que es una versión que está en manejo, aquí ya se está descargando,
+[05:15-05:25] o ya se descargó, perdón, tengo una velocidad, ya lo tengo descargado, y demás, entonces
+[05:25-05:36] Yo puedo ir directamente ya la página de descargas, a realizar, que ya lo tengo descargado,
+[05:36-05:45] yo lo que hago es ejecutarlo, double click, todo esto depende de el tipo de máquina
+[05:45-05:50] que tengamos, una máquina generalmente ya los computadores nuevos vienen con todos
+[05:50-05:57] entonces ya lo tengo acá, siguiente, aceptamos la licencia, como vices una licencia de coglie libre,
+[05:57-06:00] si, hay ningún problema para eso
+[06:00-06:06] pero no tiene ningún costo, eso es una licencia prepétula, donde se va a instalar
+[06:06-06:09] el repositorio, le doy, siguiente, instalar y el empiece.
+[06:16-06:21] Aquí se se demora un poco, entonces voy a hacer una pausa en un video y continuaremos
+[06:21-06:26] apenas el término de instalar, tengan en cuenta que esta parte nos va a salir
+[06:26-06:32] una de administración del permiso de administración y vamos a empezar a instalar.
+[06:32-06:36] Ya están su proceso de instalación, vamos a rosar y ya cuando doja.
+[06:36-06:41] Ya está terminando el proceso de instalación, vamos a mirar su proceso.
+[06:41-06:49] Eso, como les digo, depende de la máquina o depende del proceso en el que esté.
+[06:49-06:52] Ya está instalando de manera rápida.
+[06:56-07:02] a las 9 minutos
+[07:08-07:12] esto sigue instalando
+[07:13-07:17] esto ya no se instaló, entonces le vamos a finalizar
+[07:17-07:21] y vamos a realizar, generalmente siempre nos instalamos
+[07:21-07:23] en el escritorio
+[07:23-07:29] una carpeta en donde se ha toda la información. En lo personal yo no dejó esta carpeta, yo siempre la
+[07:29-07:35] ininino de él. El escritorio, tengo nada en el escritorio precisamente porque estucupe. Primero
+[07:35-07:43] ocupa espacio y segundo por funcionalidad y es por decisión. ¿Visto? Vamos a la reinición,
+[07:43-07:52] abrimos el... Cuyis, empezamos a revisar. ¿Visto? Ya nos está abriendo. En algunos casos el
+[07:52-07:59] demobra en iniciar porque es la primera vez que arranca de base en cualquier
+[07:59-08:05] máquina, está resableciendo los complementos que están cargados,
+[08:06-08:15] vamos a mirar, mientras arranca y nos da la interfaz, listo en este caso, ya
+[08:15-08:21] tenemos acá licencia vista, esto es lo que les he dado la licencia, podemos ampliarlo,
+[08:21-08:29] es en inglés, ya que pese en base la programación en Europa y en Estados Unidos,
+[08:29-08:31] más que todo nos huega.
+[08:36-08:43] Y pues cerramos, ya podemos ver, aquí hay un, ahorita, las actualizaciones
+[08:43-08:48] estás haciendo esto, salvo el proceso, actualización de la última versión,
+[08:48-08:53] que parece que se va a hacer estable para el marzo de el 2017.
+[08:53-08:54] ¿Disto?
+[08:54-08:58] Siempre nos va a abrir así en donde tenemos un proyecto reciente de una aprendizante,
+[08:58-09:00] el flotilla proyecto entonces.
+[09:00-09:08] abrimos un proyecto vacío y vamos a empezar a revisar, el kujiz tiene 90, primero
+[09:10-09:16] es el proyecto vacío, segundo, podemos ver el panel de navegador que el panel de navegador está
+[09:16-09:26] conectado con nuestros discos duros o en donde tenemos guardar la información, en este caso
+[09:26-09:33] cada quien tiene como decisión donde guarda su propia información. Estas iconos de acá
+[09:33-09:41] son otras herramientas y conexiones para otros tipos de bases, o sea, existen una base de datos
+[09:41-09:49] espaciales que podemos usar, está de Opa Cage, que son formatos de bases de datos espaciales,
+[09:49-09:55] que son de sandos olígonos y las mapas y la información de los mismos está la espacial
+[09:55-10:02] el alait, también otra de vaciones faciales, está el post red, es el SAP HANA, que es
+[10:02-10:08] como el procesamiento de imágenes, y eso todos son parecen así más, pero eso no nos
+[10:08-10:16] vamos a usar en este momento, y tenemos una parte en donde está la visualización de capas,
+[10:16-10:23] existen dos formas, tenemos la información acá, en este caso vamos a usar y es para municipio
+[10:23-10:31] Morelia, aquí ya puedo visualizar varias informaciones, esta contenida, bien
+[10:31-10:38] puede hacer en formato de DHP que son los 8.5 o XLSN que en este caso son los
+[10:38-10:48] exceles para muchos procesos SIG, funcionan como una base de datos en donde
+[10:48-10:51] podemos tener los libros de datos con toda la información contenida que nos
+[10:51-10:57] el procesamiento entonces en este caso voy acá a la parte que tenemos creo que tengo
+[10:57-11:03] creada de Sid Morelia, tengo toda la información que hemos estado procesando en las
+[11:03-11:09] las huelas talleres que se han tenido con Morelia, pero lo más importante eligaz en su
+[11:09-11:17] proceso de actualización catastral le entregó a la alcaldía de los informaciones,
+[11:17-11:23] una que se llama la gdb que en este caso es la información o la base de datos
+[11:23-11:34] espacial en donde contiene toda la información rural urbana las sonos de
+[11:34-11:40] ingenieros rurales y las sonas homogéneas urbana
+[11:40-11:48] que cual es aquí con quien en todos los polígonos, construcciones, lo que podemos acá contenir,
+[11:48-11:53] aquí lo más importante son los terrenos que podemos acá, podemos hacer eso, podemos
+[11:53-12:01] sostener y arrastrarlos al vizor o la ventana o sostenir
+[12:00-12:09] en este caso, vamos con construcciones y arrasar localizer de capas. Este vizor de capas como
+[12:09-12:16] tal es el tablero de datos de cual nos está diciendo y las ventajas que tenemos del mismo.
+[12:16-12:22] Aquí podemos visualizar estos son los colígonos, estos son las áreas de terreno, son las
+[12:22-12:31] sincas, son los terrenos, lo que están morados, lo que está en color no danja, son las
+[12:31-12:37] construcciones que fueron levantadas a partir del proceso de actualización y las unidades,
+[12:37-12:47] yo puedo apagar, prender y demás, puede hacer muchas cosas con este mismo, o cambiálele
+[12:47-12:51] los colores, en este caso quiero cambiar colores para poder visualizar muchas
+[12:51-12:58] cosas, pero hacer esto, lo que tengo a propiedad es y se me habría aquí una
+[12:58-13:05] parte de las propiedades de la capa, yo lo voy a limpiar un poquito, tengo mucha
+[13:05-13:08] información acá, pero en este caso solamente voy a la parte queica sin
+[13:08-13:14] vología, necesito es quitarle relleno esto para poder ver, aquí tengo muchas
+[13:14-13:20] opciones, reyes simples, en rolla y edad, lo dejamos en relleno simple y solamente vamos
+[13:20-13:26] acá a quitarle este color, dejamos que el relleno sea transparente y le vamos a cambiar
+[13:26-13:33] el color del borde, en este caso el borde dejémoslo en verde, que el borde vendría siendo
+[13:33-13:39] los límites o lo lindero de los bellos, aquí está, ya lo podemos visualizar, esto es
+[13:39-13:52] para la zona rural, aquí está, vamos a hacer lo mismo para las construcciones, propiedad
+[13:52-14:03] es relleno simple lo mismo, lo dejo en relleno transparente y vuelvo a cada otra parte, me
+[14:03-14:09] de vuelvo por que quiero hacer otra cosa. Si ven en esas zonas de aquí esos son los
+[14:09-14:18] splash o otros tipos de de de relleno, entonces, ¿qué voy a acá? Lo selecciono, relleno
+[14:18-14:25] la línea, está la línea el patrón, el patrón vamos a jajarlo lo mismo, el color de la
+[14:25-14:31] línea del patrón, o la línea simple, el color de la línea del patrón vamos a jajarla
+[14:31-14:39] en robo. Disto, hay que dar la línea del otro patrón o la línea simple, que la de los
+[14:39-14:46] linderos o las construcciones, aquí está, ya quedó. La unidad es, esa es mi abre por
+[14:46-14:52] el fin de todo, en este caso, pero si no las quiero ver, lo he clic derecho y lo he
+[14:52-14:59] el eneminar capa automáticamente nos acaracabamos la información que tenemos
+[15:00-15:07] disponible en colombian mapas. Podemos hacer este procesamiento. Aquí ya podemos ver. Pero
+[15:07-15:13] puedo hacer otra cosa con Cuyis, teniendo la información o teniendo access a Internet,
+[15:13-15:19] que es que voy acá a una parte en donde, tanto a la barra, los proyectos para guardar la información,
+[15:19-15:26] para salir el modelo, para importar los modelos, para guardar el proyecto, las ediciones, ver.
+[15:26-15:32] Yo te recomiendo que empiece en la familia y se familiarizarse que esas mismas capas que
+[15:32-15:40] ya aquí o datos que ya aquí están acá, hay configuración del perfil, la capa, tenemos unos
+[15:40-15:44] complementos, más adelante más los complementos, tenemos mucha herramienta de análisis,
+[15:47-15:54] degio procesamiento, de geometría, de buscar en base de datos, de los estudios, de los inicios
+[15:54-16:01] espaciales, eso también vamos a realizar porque es para procesamiento de imágenes
+[16:01-16:06] vortofotos que a propósito vamos a montar la vortofoto de Morelia, que debemos hacer,
+[16:06-16:16] pues bueno acá a capa, le voy a añadir capa, me voy acá donde dice, añadir capa
+[16:16-16:28] de servidor Argus Reset, pero no tengo nada de información, que tengo que hacer, tengo que
+[16:28-16:34] buscar esa información, entonces aquí es donde entra la clave, vamos a colombias mapas,
+[16:38-16:44] cargamos colombias mapas, y aquí podemos descargar diversidad de información,
+[16:44-16:49] este es lo que tiene disponible el IGAD para nosotros o para la opción de la
+[16:49-16:54] mía, de acuerdo ya al uso y manejo de la información, ya estos datos quedaron
+[16:54-17:00] abiertos, no tienen ningún costo el IGAD de suministra ya que Liga desde el
+[17:00-17:05] administrador especial de Colombia, entonces que estamos buscando algo de
+[17:05-17:15] Morelia que está, entonces vamos a montar, a buscar Morelia, me olvida, automáticamente se me
+[17:15-17:22] ahorrieron varios datos, pero en este caso necesitamos algo de la cartografía base, aquí está
+[17:22-17:29] el municipio de Morelia, podemos ver, base de datos vetoriales, cartografía histórica,
+[17:29-17:35] productor dientes cartográficos y demás y este los podemos montar allí pero en
+[17:35-17:42] este caso necesitamos una sola cosa, bueno en este caso necesitamos dos cosas
+[17:42-17:50] y una es la bordo foto, tenemos la bordo foto rural y tenemos no perdón la bordo
+[17:50-17:55] foto urbana y la bordo foto rural, vamos a montar las dos, primero montemos la
+[17:55-17:56] de la ruda.
+[17:56-17:59] Vamos a sumbir suerte también.
+[18:00-18:05] que tiene ligado yo lo puedo de aquí agregar mapa.
+[18:06-18:10] La podemos descargar, le podemos hacer muchas cosas,
+[18:10-18:14] y la idea es que esta mismo ortofoto
+[18:14-18:19] la podamos ver con lo que tenemos en kujiz,
+[18:19-18:22] si vamos a ver aquí nos dimos cuenta que
+[18:22-18:25] es administrador de fuentes de datos,
+[18:25-18:29] añadiendo un servidor reset de ARGIS, vamos a otras tres acas colombias mapas y en
+[18:29-18:35] la parte de acá abajo tenemos uso unos enlaces de interés, esto es enlaces de
+[18:35-18:43] interés entre yo dentro acá aquí donde dice servicio reset, si este es el metadato
+[18:43-18:49] de la imagen y que lo que vamos a hacer es jalar ese imagen desde el servidor
+[18:49-18:57] copiar este link, que es el del servicio y voy a crear, bueno, entonces en este caso,
+[18:57-19:08] que nombre lo es más colocar, Morelia, a no, Horto, Horto, Rural, Morelia,
+[19:08-19:23] Cáqueta, haremos copiado el URL, lo que hago es copiar el URL acá, lista, no tengo
+[19:23-19:30] más más que hacer aquí y le voy a aceptar, automáticamente me quedo aquí, ahora vamos
+[19:30-19:37] conectar el servicio, listo, aquí me aparece, ya puedo automáticamente añadir esta
+[19:37-19:48] capa, yo le voy a añadir, listo, ya tenemos la imagen o el artofoto de Morelia, pero
+[19:48-19:52] tenemos un desprequeño de esta, ya me la creó encima de los 6 que ya tengo o en este
+[19:52-19:57] caso de las capas que ya están cargadas, yo mantengo sostenido y lo puedo bajar igual
+[19:57-20:05] aquí ya puede ver los linderos, la ortofoto, en donde están las zonas, en donde está todo
+[20:05-20:12] contenido de la información, la forma de la finca podemos corroborar muchas cosas,
+[20:12-20:21] ¿listo? Ahora, como ya tenemos la rural, la urbana tiene otro tipo de pixelación o
+[20:21-20:30] resolución y aquí ya podemos tener orbana, que pasamos de 50 centímetros a 3 centímetros.
+[20:31-20:41] Podemos ver las unidades y demás aquí nos damos cuenta de cuál es una unidad que quedaron
+[20:41-20:47] inscritas y el porqué esas
+[20:47-20:50] construcciones que están en el
+[20:50-20:52] inventario que se realizó.
+[20:52-20:53] Tengo en cuenta que esto es una
+[20:53-20:55] imagen que es un aborto o una
+[20:55-20:58] combinación de varias fotografías
+[20:58-21:00] de un lazo de tiempo entre ellos.

@@ -1,0 +1,27 @@
+[general]
+name=ProjectGIS
+qgisMinimumVersion=3.16
+qgisMaximumVersion=3.99
+description=Convierte tablas de coordenadas Excel a Shapefile y GeoPackage con cálculos espaciales automáticos
+version=1.0.0
+author=Amazon GIS
+email=tu@email.com
+about=ProjectGIS lee archivos Excel (.xlsx) conteniendo coordenadas en formatos decimal, UTM o DMS, las convierte a capas vectoriales (Shapefile/GeoPackage) y calcula área, perímetro, distancia y zona UTM automáticamente.
+tracker=https://github.com/tu-usuario/ProjectGIS/issues
+repository=https://github.com/tu-usuario/ProjectGIS
+tags=excel,shapefile,geopackage,coordinates,import,converter
+homepage=https://github.com/tu-usuario/ProjectGIS
+category=Vector
+icon=icon.png
+experimental=False
+deprecated=False
+server=False
+hasProcessingProvider=no
+changelog=
+    1.0.0 - Version inicial
+        - Lectura de archivos Excel (.xlsx)
+        - Soporte para coordenadas decimal, UTM y DMS
+        - Exportacion a Shapefile, GeoPackage y CSV
+        - Calculo de area, perimetro, distancia y zona UTM
+        - Interfaz intuitiva tipo wizard
+        - Compatible con QGIS 3.16+

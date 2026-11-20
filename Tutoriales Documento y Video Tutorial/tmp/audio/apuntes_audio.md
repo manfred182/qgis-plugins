@@ -1,0 +1,21 @@
+# Apuntes del audio — Tutorial 1
+
+Fuente local: `Tutorial_1_Instalacion QGIS.mp4`. Duración: 30:47,73. Video: H.264, 1918 × 1078, 30 fps. Audio: AAC LC estéreo, 48 kHz. No hay pista de subtítulos.
+
+Se procesó todo el audio mediante Whisper base multilingüe local, sin enviar audio ni video a servicios externos. La transcripción es automática; nombres propios, siglas y cifras deben contrastarse con la imagen. Estos apuntes sintetizan esa transcripción, no una escucha humana independiente.
+
+- **00:00–01:31.** Presenta el tutorial para manejo de QGIS e información geográfica en el contexto de catastro multipropósito y fortalecimiento de alcaldías. Los nombres de instituciones y las credenciales personales no se reconocieron con fiabilidad.
+- **01:31–03:49.** Explica QGIS como software libre para visualización y procesamiento de información geográfica. Menciona complementos y conexiones. No conviene reproducir las caracterizaciones imprecisas de algunos proveedores o formatos.
+- **03:49–05:36.** Entra a descarga, salta la opción de donar y elige Windows. Recomienda no usar la última versión o versión estándar en desarrollo. La elección concreta debe fijarse con el instalador visible. La velocidad de descarga depende de internet.
+- **05:36–07:23.** Ejecuta instalador con doble clic, Siguiente, aceptación de licencia, ubicación de instalación, Instalar y permiso de administrador. Al terminar, Finalizar.
+- **07:43–09:16.** Abre QGIS desde Inicio. Explica que el primer arranque puede tardar por la carga de complementos. Abre proyecto vacío y muestra Navegador y Capas.
+- **09:16–12:47.** Navegador permite acceder a discos y archivos. Trabaja con datos del municipio de Morelia. Dice que el IGAC entregó la GDB con información espacial rural y urbana. Arrastra terrenos, construcciones y unidades al proyecto, y activa/desactiva visibilidad.
+- **12:47–14:59.** Propiedades → Simbología → Relleno simple. Terrenos: relleno transparente y borde verde. Construcciones: ajusta relleno, patrón de líneas y borde rojo. Quita la capa de unidades del proyecto. Eso no equivale a borrar el archivo fuente.
+- **16:01–19:48.** Capa → Añadir capa → servidor ArcGIS REST. Busca Morelia en Colombia en Mapas, cartografía base y ortofotos rural/urbana. Abre enlaces de interés → servicio REST; copia URL. En QGIS crea conexión con nombre alusivo a Orto Rural Morelia Caquetá, pega URL, acepta, Conectar, selecciona y Añadir.
+- **19:48–21:08.** La ortofoto aparece por encima; la baja en el orden de capas para ver los polígonos. Menciona resolución rural de 50 cm y urbana de 3 cm y capturas entre 2022 y 2024. Cifras y fechas necesitan contraste visual. Señala que algunas construcciones no aparecen por la fecha de la imagen.
+- **21:08–25:07.** Repite procedimiento en urbano. Dice que las iniciales distinguen capas rurales y urbanas. Añade terrenos y construcciones informales en ambos ámbitos. Cambia colores para distinguir categorías; prueba azul y luego amarillo en terrenos urbanos por contraste; usa rojo para informal. Su explicación de informal como antiguas mejoras/sin escritura se debe presentar como contexto del video, no como definición jurídica general.
+- **25:07–26:56.** Repite ajustes de simbología en rural e incrementa el grosor de líneas. El reconocimiento pierde los decimales de valores en milímetros: no usar las cifras literales de la transcripción sin revisar pantalla.
+- **27:29–28:39.** Clic derecho → Abrir tabla de atributos. Presenta información alfanumérica separada en registro 1 y registro 2 (libros Excel), que arrastra a QGIS.
+- **28:40–30:38.** Explica que las tablas aún no están amarradas/espacializadas. Registro 1: propietario, dirección, urbano/rural, vigencia, avalúos, áreas construidas y destino económico. Registro 2: información jurídica, matrícula inmobiliaria y otros campos de zonas/áreas. Señala el número predial común con la base espacial. El video no ejecuta una unión de tablas. En el audio comenta restricciones de acceso a la información por hábeas data.
+
+Transcripción completa: `transcript_complete.txt`. Segmentos, tiempos y metadatos: `transcript_complete.json`. Son 263 segmentos de voz, con última voz reconocida a 30:42,66; se procesaron los 30:47,37 de audio.

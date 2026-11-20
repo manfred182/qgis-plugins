@@ -9,9 +9,6 @@ from qgis.PyQt.QtWidgets import (
     QLabel, QLineEdit, QPushButton, QComboBox,
     QCheckBox, QMessageBox, QInputDialog
 )
-from qgis.PyQt.QtCore import Qt
-from qgis.PyQt.QtGui import QFont
-
 from .profiles import ProfileManager
 
 
